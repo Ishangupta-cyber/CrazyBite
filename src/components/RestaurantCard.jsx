@@ -1,10 +1,13 @@
-import React from "react"
+import { Link } from "react-router-dom"
+
 
 const RestaurantCard = (props) => {
-  const { name, cuisine, rating, deliveryTime, image } = props.data
+  const { id, name, cuisine, rating, deliveryTime, image } = props.data
 
   return (
-    <div className="border-stone-200 border rounded-lg shadow-sm hover:shadow-md transition-shadow w-64 m-4 overflow-hidden cursor-pointer">
+    <Link to = {"/restaurant/"+id}>
+
+     <div className="border-stone-200 border rounded-lg shadow-sm hover:shadow-md transition-shadow w-64 m-4 overflow-hidden cursor-pointer">
 
       <div className="w-full h-40 overflow-hidden">
         <img src={image} className="h-full w-full object-cover" />
@@ -21,6 +24,8 @@ const RestaurantCard = (props) => {
       </div>
 
     </div>
+    </Link>
+   
   )
 }
 

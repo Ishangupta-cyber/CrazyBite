@@ -3,6 +3,7 @@ import AppLayout from './components/AppLayout'
 import Error from './components/Error'
 import Body from './components/Body'
 import RestaurantMenu from './components/RestaurantMenu'
+import Cart from './components/Cart'
 
 
 export default function App() {
@@ -21,6 +22,10 @@ export default function App() {
         {
           path:"/restaurant/:resId",
           element:<RestaurantMenu/>
+        },
+        {
+          path:"/cart",
+          element:<Cart/>
         }
       ]
     }

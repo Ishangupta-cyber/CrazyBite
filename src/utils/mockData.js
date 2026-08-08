@@ -5,63 +5,128 @@ export const resList = [
     cuisine: "Burgers, American",
     rating: 4.2,
     deliveryTime: "25 mins",
-    image:"https://imgs.search.brave.com/wCo6lC7BixCzrJbRiKxGkBZwuuzDy4_clF3FazQCQc8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvNTMz/OTk4NjE1L3Bob3Rv/L3RoZS11bHRpbWF0/ZS1jaGVlc2VidXJn/ZXIuanBnP3M9NjEy/eDYxMiZ3PTAmaz0y/MCZjPU94ZlprSWZW/cnF2V0Zha3RLb3Nw/cHhHYkZZdGdIZjdh/Q0Z0MDJwVzM2Unc9"
+    image: "https://imgs.search.brave.com/wCo6lC7BixCzrJbRiKxGkBZwuuzDy4_clF3FazQCQc8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRpYS5nZXR0eWltYWdlcy5jb20vaWQvNTMzOTk4NjE1L3Bob3RvL3RoZS11bHRpbWF0ZS1jaGVlc2VidXJnZXIuanBnP3M9NjEyeDYxMiZ3PTAmaz0yMCZjPU94ZlprSWZWcnF2V0Zha3RLb3NwcHhHYkZZdGdIZjdhQ0Z0MDJwVzM2Unc9",
+    menuItems: [
+      { id: 101, name: "Whopper", price: 199 },
+      { id: 102, name: "Veg Burger", price: 149 },
+      { id: 103, name: "Fries", price: 99 },
+    ],
   },
   {
     id: 2,
-    name: "Pizza Hut",
+    name: "Domino's Pizza",
     cuisine: "Pizza, Italian",
-    rating: 4.0,
+    rating: 4.4,
     deliveryTime: "30 mins",
-    image:"https://imgs.search.brave.com/DtuBTo3WuAbY23hSegMRTBBD5z3gGqtb55NY_fF0Tlo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wMjIv/OTk0LzA0MS9zbWFs/bC90aGUtcGVwcGVy/b25pLXBpenphLWFu/ZC1hLXBpZWNlLW9m/LXN0cmVjaGVkLWNo/ZWVzZS1waXp6YS13/aXRoLWFpLWdlbmVy/YXRlZC1mcmVlLXBo/b3RvLmpwZw"
+    image: "https://imgs.search.brave.com/DtuBTo3WuAbY23hSegMRTBBD5z3gGqtb55NY_fF0Tlo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wMjIv/OTk0LzA0MS9zbWFs/bC90aGUtcGVwcGVy/b25pLXBpenphLWFu/ZC1hLXBpZWNlLW9m/LXN0cmVjaGVkLWNo/ZWVzZS1waXp6YS13/aXRoLWFpLWdlbmVy/YXRlZC1mcmVlLXBo/b3RvLmpwZw",
+    menuItems: [
+      { id: 201, name: "Pepperoni Pizza", price: 399 },
+      { id: 202, name: "Farmhouse Pizza", price: 349 },
+      { id: 203, name: "Garlic Bread", price: 129 },
+    ],
   },
-   {
+  {
     id: 3,
-    name: "Burger King",
-    cuisine: "Burgers, American",
-    rating: 4.2,
-    deliveryTime: "25 mins",
-    image:"https://imgs.search.brave.com/wCo6lC7BixCzrJbRiKxGkBZwuuzDy4_clF3FazQCQc8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvNTMz/OTk4NjE1L3Bob3Rv/L3RoZS11bHRpbWF0/ZS1jaGVlc2VidXJn/ZXIuanBnP3M9NjEy/eDYxMiZ3PTAmaz0y/MCZjPU94ZlprSWZW/cnF2V0Zha3RLb3Nw/cHhHYkZZdGdIZjdh/Q0Z0MDJwVzM2Unc9"
+    name: "KFC",
+    cuisine: "Fried Chicken",
+    rating: 4.3,
+    deliveryTime: "28 mins",
+    image: "https://imgs.search.brave.com/wCo6lC7BixCzrJbRiKxGkBZwuuzDy4_clF3FazQCQc8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRpYS5nZXR0eWltYWdlcy5jb20vaWQvNTMzOTk4NjE1L3Bob3RvL3RoZS11bHRpbWF0ZS1jaGVlc2VidXJnZXIuanBnP3M9NjEyeDYxMiZ3PTAmaz0yMCZjPU94ZlprSWZWcnF2V0Zha3RLb3NwcHhHYkZZdGdIZjdhQ0Z0MDJwVzM2Unc9",
+    menuItems: [
+      { id: 301, name: "Chicken Bucket", price: 499 },
+      { id: 302, name: "Zinger Burger", price: 229 },
+      { id: 303, name: "Popcorn Chicken", price: 199 },
+    ],
   },
   {
     id: 4,
     name: "Pizza Hut",
-    cuisine: "Pizza, Italian",
-    rating: 4.0,
-    deliveryTime: "30 mins",
-    image:"https://imgs.search.brave.com/DtuBTo3WuAbY23hSegMRTBBD5z3gGqtb55NY_fF0Tlo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wMjIv/OTk0LzA0MS9zbWFs/bC90aGUtcGVwcGVy/b25pLXBpenphLWFu/ZC1hLXBpZWNlLW9m/LXN0cmVjaGVkLWNo/ZWVzZS1waXp6YS13/aXRoLWFpLWdlbmVy/YXRlZC1mcmVlLXBo/b3RvLmpwZw"
+    cuisine: "Pizza, Fast Food",
+    rating: 4.1,
+    deliveryTime: "35 mins",
+    image: "https://imgs.search.brave.com/DtuBTo3WuAbY23hSegMRTBBD5z3gGqtb55NY_fF0Tlo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wMjIv/OTk0LzA0MS9zbWFs/bC90aGUtcGVwcGVy/b25pLXBpenphLWFu/ZC1hLXBpZWNlLW9m/LXN0cmVjaGVkLWNo/ZWVzZS1waXp6YS13/aXRoLWFpLWdlbmVy/YXRlZC1mcmVlLXBo/b3RvLmpwZw",
+    menuItems: [
+      { id: 401, name: "Margherita", price: 299 },
+      { id: 402, name: "Veg Supreme", price: 379 },
+      { id: 403, name: "Cheese Sticks", price: 149 },
+    ],
   },
-   {
+  {
     id: 5,
-    name: "Burger King",
-    cuisine: "Burgers, American",
-    rating: 4.2,
-    deliveryTime: "25 mins",
-    image:"https://imgs.search.brave.com/wCo6lC7BixCzrJbRiKxGkBZwuuzDy4_clF3FazQCQc8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvNTMz/OTk4NjE1L3Bob3Rv/L3RoZS11bHRpbWF0/ZS1jaGVlc2VidXJn/ZXIuanBnP3M9NjEy/eDYxMiZ3PTAmaz0y/MCZjPU94ZlprSWZW/cnF2V0Zha3RLb3Nw/cHhHYkZZdGdIZjdh/Q0Z0MDJwVzM2Unc9"
+    name: "Subway",
+    cuisine: "Healthy, Sandwiches",
+    rating: 4.5,
+    deliveryTime: "20 mins",
+    image: "https://imgs.search.brave.com/DtuBTo3WuAbY23hSegMRTBBD5z3gGqtb55NY_fF0Tlo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wMjIv/OTk0LzA0MS9zbWFs/bC90aGUtcGVwcGVy/b25pLXBpenphLWFu/ZC1hLXBpZWNlLW9m/LXN0cmVjaGVkLWNo/ZWVzZS1waXp6YS13/aXRoLWFpLWdlbmVy/YXRlZC1mcmVlLXBo/b3RvLmpwZw",
+    menuItems: [
+      { id: 501, name: "Veggie Delight", price: 179 },
+      { id: 502, name: "Paneer Tikka Sub", price: 249 },
+      { id: 503, name: "Cookies", price: 49 },
+    ],
   },
   {
     id: 6,
-    name: "Pizza Hut",
-    cuisine: "Pizza, Italian",
-    rating: 4.0,
-    deliveryTime: "30 mins",
-    image:"https://imgs.search.brave.com/DtuBTo3WuAbY23hSegMRTBBD5z3gGqtb55NY_fF0Tlo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wMjIv/OTk0LzA0MS9zbWFs/bC90aGUtcGVwcGVy/b25pLXBpenphLWFu/ZC1hLXBpZWNlLW9m/LXN0cmVjaGVkLWNo/ZWVzZS1waXp6YS13/aXRoLWFpLWdlbmVy/YXRlZC1mcmVlLXBo/b3RvLmpwZw"
+    name: "McDonald's",
+    cuisine: "Burgers, Fast Food",
+    rating: 4.4,
+    deliveryTime: "22 mins",
+    image: "https://imgs.search.brave.com/DtuBTo3WuAbY23hSegMRTBBD5z3gGqtb55NY_fF0Tlo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wMjIv/OTk0LzA0MS9zbWFs/bC90aGUtcGVwcGVy/b25pLXBpenphLWFu/ZC1hLXBpZWNlLW9m/LXN0cmVjaGVkLWNo/ZWVzZS1waXp6YS13/aXRoLWFpLWdlbmVy/YXRlZC1mcmVlLXBo/b3RvLmpwZw",
+    menuItems: [
+      { id: 601, name: "McAloo Tikki", price: 79 },
+      { id: 602, name: "McChicken", price: 189 },
+      { id: 603, name: "McFlurry", price: 119 },
+    ],
   },
-   {
+  {
     id: 7,
-    name: "Burger King",
-    cuisine: "Burgers, American",
-    rating: 4.2,
-    deliveryTime: "25 mins",
-    image:"https://imgs.search.brave.com/wCo6lC7BixCzrJbRiKxGkBZwuuzDy4_clF3FazQCQc8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvNTMz/OTk4NjE1L3Bob3Rv/L3RoZS11bHRpbWF0/ZS1jaGVlc2VidXJn/ZXIuanBnP3M9NjEy/eDYxMiZ3PTAmaz0y/MCZjPU94ZlprSWZW/cnF2V0Zha3RLb3Nw/cHhHYkZZdGdIZjdh/Q0Z0MDJwVzM2Unc9"
+    name: "Biryani Blues",
+    cuisine: "Biryani, North Indian",
+    rating: 4.6,
+    deliveryTime: "32 mins",
+    image: "https://imgs.search.brave.com/wCo6lC7BixCzrJbRiKxGkBZwuuzDy4_clF3FazQCQc8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRpYS5nZXR0eWltYWdlcy5jb20vaWQvNTMzOTk4NjE1L3Bob3RvL3RoZS11bHRpbWF0ZS1jaGVlc2VidXJnZXIuanBnP3M9NjEyeDYxMiZ3PTAmaz0yMCZjPU94ZlprSWZWcnF2V0Zha3RLb3NwcHhHYkZZdGdIZjdhQ0Z0MDJwVzM2Unc9",
+    menuItems: [
+      { id: 701, name: "Chicken Biryani", price: 299 },
+      { id: 702, name: "Veg Biryani", price: 229 },
+      { id: 703, name: "Raita", price: 49 },
+    ],
   },
   {
     id: 8,
-    name: "Pizza Hut",
-    cuisine: "Pizza, Italian",
-    rating: 4.0,
-    deliveryTime: "30 mins",
-    image:"https://imgs.search.brave.com/DtuBTo3WuAbY23hSegMRTBBD5z3gGqtb55NY_fF0Tlo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wMjIv/OTk0LzA0MS9zbWFs/bC90aGUtcGVwcGVy/b25pLXBpenphLWFu/ZC1hLXBpZWNlLW9m/LXN0cmVjaGVkLWNo/ZWVzZS1waXp6YS13/aXRoLWFpLWdlbmVy/YXRlZC1mcmVlLXBo/b3RvLmpwZw"
+    name: "Haldiram's",
+    cuisine: "North Indian, Snacks",
+    rating: 4.3,
+    deliveryTime: "26 mins",
+    image: "https://imgs.search.brave.com/DtuBTo3WuAbY23hSegMRTBBD5z3gGqtb55NY_fF0Tlo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wMjIv/OTk0LzA0MS9zbWFs/bC90aGUtcGVwcGVy/b25pLXBpenphLWFu/ZC1hLXBpZWNlLW9m/LXN0cmVjaGVkLWNo/ZWVzZS1waXp6YS13/aXRoLWFpLWdlbmVy/YXRlZC1mcmVlLXBo/b3RvLmpwZw",
+    menuItems: [
+      { id: 801, name: "Raj Kachori", price: 129 },
+      { id: 802, name: "Chole Bhature", price: 169 },
+      { id: 803, name: "Gulab Jamun", price: 89 },
+    ],
   },
- 
-]
+  {
+    id: 9,
+    name: "Wow! Momo",
+    cuisine: "Momos, Chinese",
+    rating: 4.2,
+    deliveryTime: "24 mins",
+    image: "https://imgs.search.brave.com/wCo6lC7BixCzrJbRiKxGkBZwuuzDy4_clF3FazQCQc8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRpYS5nZXR0eWltYWdlcy5jb20vaWQvNTMzOTk4NjE1L3Bob3RvL3RoZS11bHRpbWF0ZS1jaGVlc2VidXJnZXIuanBnP3M9NjEyeDYxMiZ3PTAmaz0yMCZjPU94ZlprSWZWcnF2V0Zha3RLb3NwcHhHYkZZdGdIZjdhQ0Z0MDJwVzM2Unc9",
+    menuItems: [
+      { id: 901, name: "Steamed Momos", price: 139 },
+      { id: 902, name: "Fried Momos", price: 159 },
+      { id: 903, name: "Momo Platter", price: 299 },
+    ],
+  },
+  {
+    id: 10,
+    name: "Barbeque Nation",
+    cuisine: "BBQ, North Indian",
+    rating: 4.7,
+    deliveryTime: "40 mins",
+    image: "https://imgs.search.brave.com/wCo6lC7BixCzrJbRiKxGkBZwuuzDy4_clF3FazQCQc8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRpYS5nZXR0eWltYWdlcy5jb20vaWQvNTMzOTk4NjE1L3Bob3RvL3RoZS11bHRpbWF0ZS1jaGVlc2VidXJnZXIuanBnP3M9NjEyeDYxMiZ3PTAmaz0yMCZjPU94ZlprSWZWcnF2V0Zha3RLb3NwcHhHYkZZdGdIZjdhQ0Z0MDJwVzM2Unc9",
+    menuItems: [
+      { id: 1001, name: "BBQ Platter", price: 699 },
+      { id: 1002, name: "Grilled Chicken", price: 499 },
+      { id: 1003, name: "Brownie", price: 149 },
+    ],
+  },
+];

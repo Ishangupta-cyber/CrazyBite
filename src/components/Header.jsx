@@ -1,6 +1,12 @@
 import { MapPin, ChevronDown, ShoppingCart, Search } from "lucide-react"
+import { useContext } from "react"
+import CartContext from "../utils/cartContext"
+import { Link } from "react-router-dom"
 
 function Header(props) {
+
+  const {cartItems}=useContext(CartContext)
+
 
   return (
     <div className="flex items-center justify-between gap-6 px-8 py-3 shadow-sm">
@@ -25,10 +31,10 @@ function Header(props) {
       </div>
 
       <div className="flex items-center gap-6">
-        <div className="flex items-center gap-1 text-sm font-medium cursor-pointer">
+       <Link to="/cart"> <div className="flex items-center gap-1 text-sm font-medium cursor-pointer">
           <ShoppingCart size={18} />
-          <span>Cart</span>
-        </div>
+          <span>Cart ({cartItems.length})</span>
+        </div></Link>
         <button className="bg-orange-500 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-orange-600">
           Sign In
         </button>
