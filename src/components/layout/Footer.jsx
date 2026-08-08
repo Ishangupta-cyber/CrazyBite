@@ -1,5 +1,6 @@
 import { FaInstagram, FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa"
 
+// Purely static footer — koi state ya data nahi, sirf markup
 export default function Footer() {
   return (
     <div className="bg-gray-900 text-gray-300 px-16 pt-10 pb-6">
