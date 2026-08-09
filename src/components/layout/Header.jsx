@@ -2,13 +2,8 @@ import { MapPin, ChevronDown, ShoppingCart, Search } from "lucide-react"
 import { Link } from "react-router-dom"
 import { useCart } from "../../hooks/useCart"
 
-/**
- * Top bar: logo, search box, cart count.
- *
- * searchText prop se aata hai (AppLayout ke paas rehta hai) kyunki Body ko bhi
- * wahi chahiye — dono ka common parent AppLayout hai.
- * Cart count context se aata hai, prop se nahi — wo 3 alag jagah chahiye tha.
- */
+
+
 function Header({ searchText, setSearchText }) {
   const { cartItems } = useCart()
 
@@ -26,7 +21,7 @@ function Header({ searchText, setSearchText }) {
         </div>
       </div>
 
-      {/* Controlled input: value state se aata hai, onChange state badalta hai */}
+
       <div className="flex-1 max-w-md flex items-center gap-2 border border-gray-300 rounded-full px-4 py-2">
         <Search size={16} className="text-gray-400" />
         <input

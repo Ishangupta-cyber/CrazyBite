@@ -5,23 +5,16 @@ import ErrorMessage from "../common/ErrorMessage"
 import { useRestaurantList } from "../../hooks/useRestaurantList"
 import { STATUS } from "../../utils/constants"
 
-/**
- * HOME PAGE — restaurant list.
- *
- * Dekho ye component ab kitna chhota hai: koi fetch nahi, koi JSON parsing nahi.
- * Wo saara kaam useRestaurantList hook karta hai. Yahan bacha sirf "kya dikhana hai".
- * Yahi modular hone ka matlab hai — ek file ka ek hi kaam.
- */
+
+
 const Body = () => {
-  // Ek line mein data + status. Andar kya ho raha hai, isse farak nahi padta.
+
   const { restaurants, status } = useRestaurantList()
 
-  // Search text Header ke paas hai, AppLayout ke Outlet ke through yahan aata hai
+
   const { searchText } = useOutletContext()
 
-  // Filtering render ke waqt hoti hai, alag state mein nahi rakhi.
-  // Kyunki ye do cheezon se nikaali ja sakti hai (list + searchText),
-  // aur jo derive ho sakta hai use state banane se bugs aate hain.
+
   const filteredList = restaurants.filter((restaurant) =>
     restaurant.name?.toLowerCase().includes(searchText?.toLowerCase() ?? "")
   )
@@ -41,8 +34,9 @@ const Body = () => {
       )}
 
       {status === STATUS.DONE && (
+
         <div className="flex flex-wrap justify-center">
-          {/* key React ko batati hai kaunsa card kaunsa hai — index nahi, asli id do */}
+          
           {filteredList.map((restaurant) => (
             <RestaurantCard key={restaurant.id} data={restaurant} />
           ))}

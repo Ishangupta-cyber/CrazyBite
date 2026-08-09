@@ -1,8 +1,5 @@
-/**
- * Chhota reusable error banner — jab fetch fail ho jaye.
- * Ek hi jagah rakha hai taaki har page pe error ek jaisa dikhe.
- */
-const ErrorMessage = ({ message = "Kuch gadbad ho gayi. Thodi der baad try karo." }) => (
+
+const ErrorMessage = ({ message = "Something went Wrong...Try again later!!!" }) => (
   <p className="text-red-500 py-6">{message}</p>
 )
 

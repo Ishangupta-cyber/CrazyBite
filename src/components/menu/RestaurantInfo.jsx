@@ -1,7 +1,4 @@
-/**
- * Menu page ka upar wala hissa — restaurant ka naam, rating, delivery time.
- * Sirf display ka kaam, koi logic nahi.
- */
+
 const RestaurantInfo = ({ restaurant }) => {
   return (
     <>
