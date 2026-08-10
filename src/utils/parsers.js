@@ -1,6 +1,6 @@
 import {
   CDN_URL,
-  RESTAURANT_LIST_CARD_ID,
+  RESTAURANT_CARD_IDS,
   MENU_TYPES,
 } from "./constants"
 
@@ -15,26 +15,49 @@ const toRestaurantCard = (restaurant) => {
   return {
     id: info?.id,
     name: info?.name,
-    
+
     cuisine: info?.cuisines?.join(", "),
     rating: info?.avgRating,
+    ratingCount: info?.totalRatingsString,
 
     deliveryTime: info?.sla?.slaString,
+    distance: info?.sla?.lastMileTravelString,
+
+    area: info?.locality || info?.areaName,
+    costForTwo: info?.costForTwo,
+
+    // "50% OFF" + "FLAT DEAL" — card ke image overlay pe dikhate hain
+    offer: info?.aggregatedDiscountInfoV3?.header,
+    offerTag: info?.aggregatedDiscountInfoV3?.discountTag,
+
+    isOpen: info?.isOpen !== false,
     image: buildImageUrl(info?.cloudinaryImageId),
   }
 }
 
 
+const readRestaurantsFromCard = (cards, cardId) =>
+  cards.find((c) => c?.card?.card?.id === cardId)?.card?.card?.gridElements
+    ?.infoWithStyle?.restaurants ?? []
+
+
 export const parseRestaurantList = (json) => {
+  const cards = json?.data?.cards ?? []
 
-  const listingCard = json?.data?.cards?.find(
-    (c) => c?.card?.card?.id === RESTAURANT_LIST_CARD_ID
-  )
+  // dono cards mein kuch restaurants common hote hain, isliye id pe dedupe
+  const byId = new Map()
 
-  const rawList =
-    listingCard?.card?.card?.gridElements?.infoWithStyle?.restaurants ?? []
+  RESTAURANT_CARD_IDS.forEach((cardId) => {
+    readRestaurantsFromCard(cards, cardId).forEach((restaurant) => {
+      const parsed = toRestaurantCard(restaurant)
 
-  return rawList.map(toRestaurantCard)
+      if (parsed.id && !byId.has(parsed.id)) {
+        byId.set(parsed.id, parsed)
+      }
+    })
+  })
+
+  return [...byId.values()]
 }
 
 

@@ -17,7 +17,14 @@ export const CDN_URL = "https://media-assets.swiggy.com/swiggy/image/upload/"
 
 
 
+// Swiggy restaurants ko do alag cards mein bhejta hai — dono se uthate hain,
+// warna sirf 8 milte hain jabki 23 unique available hote hain.
+export const TOP_BRANDS_CARD_ID = "top_brands_for_you"
+
 export const RESTAURANT_LIST_CARD_ID = "restaurant_grid_listing_v2"
+
+
+export const RESTAURANT_CARD_IDS = [TOP_BRANDS_CARD_ID, RESTAURANT_LIST_CARD_ID]
 
 
 

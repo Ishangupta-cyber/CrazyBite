@@ -1,5 +1,5 @@
-import { MapPin, ChevronDown, ShoppingCart, Search } from "lucide-react"
-import { Link } from "react-router-dom"
+import { MapPin, ChevronDown, ShoppingBag, Search, X } from "lucide-react"
+import { Link, NavLink } from "react-router-dom"
 import { useCart } from "../../hooks/useCart"
 
 
@@ -8,43 +8,63 @@ function Header({ searchText, setSearchText }) {
   const { cartItems } = useCart()
 
   return (
-    <div className="flex items-center justify-between gap-6 px-8 py-3 shadow-sm">
+    <header className="sticky top-0 z-50 border-b border-line bg-surface/80 backdrop-blur-xl">
+      <div className="mx-auto flex h-16 max-w-7xl items-center gap-3 px-4 sm:gap-6 sm:px-6 lg:px-8">
 
-      <div className="flex items-center gap-2">
-        <Link to="/">
-          <h3 className="text-2xl font-bold text-orange-500">Quickbite</h3>
+        <Link to="/" className="flex shrink-0 items-center gap-2">
+          <span className="grid h-9 w-9 place-items-center rounded-xl bg-accent text-lg font-black text-white shadow-card">
+            Q
+          </span>
+          <span className="hidden text-xl font-extrabold tracking-tight sm:block">
+            Quickbite
+          </span>
         </Link>
-        <div className="flex items-center gap-1 text-sm text-gray-600 cursor-pointer">
-          <MapPin size={16} className="text-orange-500" />
-          <span>Dehradun</span>
+
+        <button className="hidden shrink-0 items-center gap-1.5 rounded-xl px-2.5 py-2 text-sm text-muted transition-colors hover:bg-surface-2 hover:text-fg md:flex">
+          <MapPin size={15} className="text-accent" />
+          <span className="font-medium text-fg">Dwarka</span>
           <ChevronDown size={14} />
+        </button>
+
+        <div className="group flex h-10 flex-1 items-center gap-2 rounded-xl border border-line bg-surface-2 px-3 transition-colors focus-within:border-accent focus-within:bg-surface">
+          <Search size={16} className="shrink-0 text-muted" />
+          <input
+            placeholder="Search restaurants or dishes"
+            className="w-full bg-transparent text-sm text-fg outline-none placeholder:text-muted"
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+          />
+          {searchText && (
+            <button
+              onClick={() => setSearchText("")}
+              aria-label="Clear search"
+              className="shrink-0 cursor-pointer rounded-md p-0.5 text-muted transition-colors hover:text-fg"
+            >
+              <X size={14} />
+            </button>
+          )}
+        </div>
+
+        <div className="flex shrink-0 items-center gap-1 sm:gap-2">
+          <NavLink
+            to="/cart"
+            className="relative grid h-10 w-10 place-items-center rounded-xl text-muted transition-colors hover:bg-surface-2 hover:text-fg"
+          >
+            <ShoppingBag size={18} />
+
+            {cartItems.length > 0 && (
+              <span className="absolute top-1 right-1 grid h-4 min-w-4 place-items-center rounded-full bg-accent px-1 text-[10px] font-bold text-white">
+                {cartItems.length}
+              </span>
+            )}
+          </NavLink>
+
+          <button className="hidden h-10 cursor-pointer rounded-xl bg-fg px-4 text-sm font-semibold text-bg transition-opacity hover:opacity-85 sm:block">
+            Sign In
+          </button>
         </div>
       </div>
-
-
-      <div className="flex-1 max-w-md flex items-center gap-2 border border-gray-300 rounded-full px-4 py-2">
-        <Search size={16} className="text-gray-400" />
-        <input
-          placeholder="Search for restaurant and food"
-          className="w-full text-sm outline-none"
-          value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
-        />
-      </div>
-
-      <div className="flex items-center gap-6">
-        <Link to="/cart">
-          <div className="flex items-center gap-1 text-sm font-medium cursor-pointer">
-            <ShoppingCart size={18} />
-            <span>Cart ({cartItems.length})</span>
-          </div>
-        </Link>
-
-        <button className="bg-orange-500 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-orange-600">
-          Sign In
-        </button>
-      </div>
-    </div>
+    </header>
   )
 }
 

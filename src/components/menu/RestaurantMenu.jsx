@@ -1,5 +1,6 @@
 import { useState } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
+import { ChevronLeft } from "lucide-react"
 import RestaurantInfo from "./RestaurantInfo"
 import MenuCategory from "./MenuCategory"
 import { MenuShimmer } from "../common/Shimmer"
@@ -7,46 +8,52 @@ import ErrorMessage from "../common/ErrorMessage"
 import { useRestaurantMenu } from "../../hooks/useRestaurantMenu"
 import { STATUS } from "../../utils/constants"
 
-const RestaurantMenu = () => {
- 
 
+const RestaurantMenu = () => {
   const { resId } = useParams()
 
   const { restaurant, categories, status } = useRestaurantMenu(resId)
 
- 
   const [openIndex, setOpenIndex] = useState(0)
 
   if (status === STATUS.LOADING) return <MenuShimmer />
 
   if (status === STATUS.ERROR) {
     return (
-      <div className="px-8 py-6 max-w-2xl mx-auto">
+      <div className="mx-auto max-w-3xl px-4 py-8 sm:px-6">
         <ErrorMessage message="Menu load nahi ho paaya. Thodi der baad try karo." />
       </div>
     )
   }
 
   return (
-    <div className="px-8 py-6 max-w-2xl mx-auto">
+    <main className="mx-auto max-w-3xl px-4 py-6 sm:px-6 sm:py-8">
+
+      <Link
+        to="/"
+        className="mb-4 inline-flex items-center gap-1 text-sm font-medium text-muted transition-colors hover:text-accent"
+      >
+        <ChevronLeft size={16} />
+        All restaurants
+      </Link>
+
       <RestaurantInfo restaurant={restaurant} />
 
-      <div className="border-t border-gray-300 my-3"></div>
+      <h2 className="mt-8 mb-4 text-center text-xs font-bold tracking-[0.2em] text-muted uppercase">
+        — Menu —
+      </h2>
 
-      <h2 className="text-lg font-semibold mb-3">Menu</h2>
-
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-3">
         {categories.map((category, index) => (
           <MenuCategory
             key={category.title + index}
             category={category}
             isOpen={openIndex === index}
-
             onToggle={() => setOpenIndex(openIndex === index ? -1 : index)}
           />
         ))}
       </div>
-    </div>
+    </main>
   )
 }
 

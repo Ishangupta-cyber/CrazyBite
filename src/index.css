@@ -1,1 +1,94 @@
 @import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+
+:root {
+  --bg: #fbfbfc;
+  --surface: #ffffff;
+  --surface-2: #f4f4f6;
+  --line: #e9e9ee;
+  --fg: #16161a;
+  --muted: #71717f;
+  --accent: #ff5200;
+  --accent-soft: #fff0e8;
+  --veg: #16a34a;
+  --nonveg: #dc2626;
+  --shadow: 0 1px 2px rgb(16 16 26 / 0.04), 0 8px 24px -12px rgb(16 16 26 / 0.12);
+  --shadow-lg: 0 2px 4px rgb(16 16 26 / 0.05), 0 18px 40px -16px rgb(16 16 26 / 0.22);
+}
+
+.dark {
+  --bg: #0a0a0e;
+  --surface: #131318;
+  --surface-2: #1c1c23;
+  --line: #26262f;
+  --fg: #f3f3f6;
+  --muted: #9494a4;
+  --accent: #ff6a24;
+  --accent-soft: #2b1408;
+  --veg: #22c55e;
+  --nonveg: #f87171;
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px -12px rgb(0 0 0 / 0.6);
+  --shadow-lg: 0 2px 4px rgb(0 0 0 / 0.5), 0 18px 40px -16px rgb(0 0 0 / 0.8);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-veg: var(--veg);
+  --color-nonveg: var(--nonveg);
+
+  --shadow-card: var(--shadow);
+  --shadow-card-lg: var(--shadow-lg);
+}
+
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: var(--accent);
+  color: #fff;
+}
+
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@utility animate-rise {
+  animation: rise 0.4s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
