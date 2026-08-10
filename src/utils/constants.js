@@ -1,9 +1,8 @@
 
-const LAT = "28.5921"
-const LNG = "77.0460"
 
 
-export const SWIGGY_API_URL = `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${LAT}&lng=${LNG}&page_type=DESKTOP_WEB_LISTING`
+export const getSwiggyApiUrl = (lat, lng) =>
+  `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${lat}&lng=${lng}&page_type=DESKTOP_WEB_LISTING`
 
 
 export const SWIGGY_MENU_URL = (resId) =>

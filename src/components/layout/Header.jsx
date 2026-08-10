@@ -1,11 +1,14 @@
 import { MapPin, ChevronDown, ShoppingBag, Search, X } from "lucide-react"
 import { Link, NavLink } from "react-router-dom"
 import { useCart } from "../../hooks/useCart"
+import ThemeToggle from "../common/ThemeToggle"
+import { useReverseGeocode } from "../../hooks/useReverseGeocode"
 
 
 
-function Header({ searchText, setSearchText }) {
+function Header({ searchText, setSearchText, coords }) {
   const { cartItems } = useCart()
+  const placeName = useReverseGeocode(coords)
 
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-surface/80 backdrop-blur-xl">
@@ -22,7 +25,7 @@ function Header({ searchText, setSearchText }) {
 
         <button className="hidden shrink-0 items-center gap-1.5 rounded-xl px-2.5 py-2 text-sm text-muted transition-colors hover:bg-surface-2 hover:text-fg md:flex">
           <MapPin size={15} className="text-accent" />
-          <span className="font-medium text-fg">Dwarka</span>
+          <span className="font-medium text-fg">{placeName}</span>
           <ChevronDown size={14} />
         </button>
 
@@ -44,6 +47,9 @@ function Header({ searchText, setSearchText }) {
             </button>
           )}
         </div>
+
+     
+          <ThemeToggle />
 
         <div className="flex shrink-0 items-center gap-1 sm:gap-2">
           <NavLink
