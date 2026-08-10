@@ -5,8 +5,12 @@ import { Link } from "react-router-dom"
 const RestaurantCard = ({ data }) => {
   const { id, name, cuisine, rating, deliveryTime, image } = data
 
+  const prefetchMenu=()=>{
+    import("../menu/RestaurantMenu")
+  }
+
   return (
-    <Link to={"/restaurant/" + id}>
+    <Link to={"/restaurant/" + id} onMouseEnter={prefetchMenu} onFocus={prefetchMenu}>
       <div className="border-stone-200 border rounded-lg shadow-sm hover:shadow-md transition-shadow w-64 m-4 overflow-hidden cursor-pointer">
 
         <div className="w-full h-40 overflow-hidden">

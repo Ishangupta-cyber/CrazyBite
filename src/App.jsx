@@ -1,17 +1,18 @@
+import { lazy, Suspense } from "react"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import AppLayout from "./components/layout/AppLayout"
 import ErrorPage from "./components/common/ErrorPage"
 import Body from "./components/restaurant/Body"
-import RestaurantMenu from "./components/menu/RestaurantMenu"
-import Cart from "./components/cart/Cart"
+import { RestaurantListShimmer, MenuShimmer } from "./components/common/Shimmer"
 
 
+const RestaurantMenu = lazy(() => import("./components/menu/RestaurantMenu"))
+const Cart = lazy(() => import("./components/cart/Cart"))
 
 const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <AppLayout />,
-
     errorElement: <ErrorPage />,
     children: [
       {
@@ -19,13 +20,20 @@ const appRouter = createBrowserRouter([
         element: <Body />,
       },
       {
-     
         path: "/restaurant/:resId",
-        element: <RestaurantMenu />,
+        element: (
+          <Suspense fallback={<MenuShimmer />}>
+            <RestaurantMenu />
+          </Suspense>
+        ),
       },
       {
         path: "/cart",
-        element: <Cart />,
+        element: (
+          <Suspense fallback={<RestaurantListShimmer count={3} />}>
+            <Cart />
+          </Suspense>
+        ),
       },
     ],
   },
