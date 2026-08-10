@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useParams, Link } from "react-router-dom"
+import { useParams, useOutletContext, Link } from "react-router-dom"
 import { ChevronLeft } from "lucide-react"
 import RestaurantInfo from "./RestaurantInfo"
 import MenuCategory from "./MenuCategory"
@@ -11,8 +11,9 @@ import { STATUS } from "../../utils/constants"
 
 const RestaurantMenu = () => {
   const { resId } = useParams()
+  const { coords } = useOutletContext()
 
-  const { restaurant, categories, status } = useRestaurantMenu(resId)
+  const { restaurant, categories, status } = useRestaurantMenu(resId, coords)
 
   const [openIndex, setOpenIndex] = useState(0)
 

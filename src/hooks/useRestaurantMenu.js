@@ -5,12 +5,15 @@ import { SWIGGY_MENU_URL, STATUS } from "../utils/constants"
 
 
 
-export const useRestaurantMenu = (resId) => {
+export const useRestaurantMenu = (resId, coords) => {
   const [restaurant, setRestaurant] = useState(null)
   const [categories, setCategories] = useState([])
   const [status, setStatus] = useState(STATUS.LOADING)
 
   useEffect(() => {
+
+  
+    if (!coords) return
 
     let ignore = false
 
@@ -18,7 +21,7 @@ export const useRestaurantMenu = (resId) => {
       setStatus(STATUS.LOADING)
 
       try {
-        const json = await fetchFromSwiggy(SWIGGY_MENU_URL(resId))
+        const json = await fetchFromSwiggy(SWIGGY_MENU_URL(resId, coords.lat, coords.lng))
         if (ignore) return
 
         const info = parseRestaurantInfo(json)
@@ -44,7 +47,7 @@ export const useRestaurantMenu = (resId) => {
       ignore = true
     }
 
-  }, [resId])
+  }, [resId, coords])
 
   return { restaurant, categories, status }
 }

@@ -5,11 +5,12 @@ export const getSwiggyApiUrl = (lat, lng) =>
   `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${lat}&lng=${lng}&page_type=DESKTOP_WEB_LISTING`
 
 
-export const SWIGGY_MENU_URL = (resId) =>
-  `https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=${LAT}&lng=${LNG}&restaurantId=${resId}`
+export const SWIGGY_MENU_URL = (resId, lat, lng) =>
+  `https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=${lat}&lng=${lng}&restaurantId=${resId}`
 
 
-export const CORS_PROXY = "https://proxy.corsfix.com/?"
+// Apna hi serverless proxy (api/swiggy.js) — CORS server-side pe lagta hi nahi.
+export const SWIGGY_PROXY = "/api/swiggy?url="
 
 
 export const CDN_URL = "https://media-assets.swiggy.com/swiggy/image/upload/"
