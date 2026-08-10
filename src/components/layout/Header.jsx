@@ -1,14 +1,19 @@
+import { useState } from "react"
 import { MapPin, ChevronDown, ShoppingBag, Search, X } from "lucide-react"
 import { Link, NavLink } from "react-router-dom"
 import { useCart } from "../../hooks/useCart"
 import ThemeToggle from "../common/ThemeToggle"
+import LoginModal from "../common/LoginModal"
 import { useReverseGeocode } from "../../hooks/useReverseGeocode"
+import { useUser } from "../../context/UserContext"
 
 
 
 function Header({ searchText, setSearchText, coords }) {
   const { cartItems } = useCart()
   const placeName = useReverseGeocode(coords)
+  const { user, logout } = useUser()
+  const [showLogin, setShowLogin] = useState(false)
 
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-surface/80 backdrop-blur-xl">
@@ -65,11 +70,30 @@ function Header({ searchText, setSearchText, coords }) {
             )}
           </NavLink>
 
-          <button className="hidden h-10 cursor-pointer rounded-xl bg-fg px-4 text-sm font-semibold text-bg transition-opacity hover:opacity-85 sm:block">
-            Sign In
-          </button>
+          {/* Context se pata chal jaata hai login hai ya nahi — usi se poora UI switch */}
+          {user ? (
+            <div className="hidden items-center gap-2 sm:flex">
+              <span className="text-sm font-medium">Hi, {user.name}</span>
+              <button
+                onClick={logout}
+                className="h-10 cursor-pointer rounded-xl px-3 text-sm font-medium text-muted transition-colors hover:bg-surface-2 hover:text-fg"
+              >
+                Logout
+              </button>
+            </div>
+          ) : (
+            <button
+              onClick={() => setShowLogin(true)}
+              className="hidden h-10 cursor-pointer rounded-xl bg-fg px-4 text-sm font-semibold text-bg transition-opacity hover:opacity-85 sm:block"
+            >
+              Sign In
+            </button>
+          )}
         </div>
       </div>
+
+      {/* modal khud band hona decide nahi karta — parent onClose callback deta hai */}
+      {showLogin && <LoginModal onClose={() => setShowLogin(false)} />}
     </header>
   )
 }
